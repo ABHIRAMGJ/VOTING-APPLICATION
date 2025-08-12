@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Online Voting System</title>
+
+<!-- Bootstrap & Fonts -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(to bottom right, #f0f8ff, #dfefff);
+        color: #333;
+        scroll-behavior: smooth;
+    }
+
+    /* Navbar */
+    .navbar {
+        background: linear-gradient(90deg, #004aad, #007bff);
+    }
+    .navbar-brand, .nav-link {
+        color: white !important;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+    }
+    .nav-link:hover {
+        color: #ffdd57 !important;
+    }
+
+    /* Hero Section */
+    .hero {
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(90deg, rgba(0,74,173,0.9), rgba(0,123,255,0.9)), url('main.jpg') center/cover no-repeat;
+        color: white;
+        padding: 100px 20px;
+        text-align: center;
+        border-bottom-left-radius: 50px;
+        border-bottom-right-radius: 50px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    }
+    #particles-js {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+    }
+    .hero-content {
+        position: relative;
+        z-index: 1;
+    }
+    .hero h1 {
+        font-weight: 700;
+        font-size: 3rem;
+    }
+    .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+    }
+    .hero .btn {
+        background-color: #ffdd57;
+        color: #004aad;
+        font-weight: 600;
+        padding: 12px 30px;
+        border-radius: 30px;
+        transition: all 0.3s ease;
+    }
+    .hero .btn:hover {
+        background-color: #ffd633;
+        transform: scale(1.05);
+    }
+
+    /* Section Styling */
+    section {
+        padding: 60px 0;
+    }
+    .section-card {
+        background: white;
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        transition: transform 0.3s ease;
+    }
+    .section-card:hover {
+        transform: translateY(-5px);
+    }
+    h2 {
+        font-weight: 700;
+        color: #004aad;
+    }
+
+    /* Features Section */
+    .feature-icon {
+        font-size: 3rem;
+        color: #007bff;
+        margin-bottom: 15px;
+        transition: transform 0.3s;
+    }
+    .feature-card:hover .feature-icon {
+        transform: scale(1.2);
+    }
+
+    /* Image Frame */
+    .img-frame {
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    /* Footer */
+    footer {
+        background: linear-gradient(90deg, #ced3da, #367bc9);
+        color: white;
+        padding: 15px 0;
+        text-align: center;
+        font-size: 14px;
+        letter-spacing: 0.5px;
+    }
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg shadow-sm">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="#">🗳️ Online Voting</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#vote">Vote</a></li>
+                <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+                <li class="nav-item"><a class="nav-link" href="pageindex.html">MLA Info</a></li>
+                <li class="nav-item"><a class="nav-link" href="contactus.html">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<div class="hero">
+    <div id="particles-js"></div>
+    <div class="hero-content" data-aos="fade-up">
+        <h1 id="typed-text"></h1>
+        <p>Vote safely from anywhere — no queues, no waiting.</p>
+        <a href="#vote" class="btn">Vote Now</a>
+    </div>
+</div>
+
+<!-- Illustration -->
+<section class="text-center" data-aos="fade-up">
+    <div class="container">
+        <img src="3.png" class="img-fluid img-frame" width="600" alt="Voting Illustration">
+    </div>
+</section>
+
+<!-- Vote Section -->
+<section id="vote">
+    <div class="container" data-aos="fade-up">
+        <div class="section-card text-center">
+            <h2>Vote Here</h2>
+            <p>Cast your vote securely with just a few clicks.</p>
+            <a href="page1.html" class="btn btn-primary px-4 py-2">Start Voting</a>
+        </div>
+    </div>
+</section>
+
+<!-- NEW Features Section -->
+<section id="features" style="background: #f8fbff;">
+    <div class="container">
+        <h2 class="text-center mb-5" data-aos="fade-up">Why Choose Our Voting System?</h2>
+        <div class="row g-4">
+            <div class="col-md-4 text-center feature-card" data-aos="zoom-in">
+                <div class="feature-icon">🔒</div>
+                <h5>Blockchain Security</h5>
+                <p>Immutable, transparent, and tamper-proof voting process.</p>
+            </div>
+            <div class="col-md-4 text-center feature-card" data-aos="zoom-in" data-aos-delay="200">
+                <div class="feature-icon">⚡</div>
+                <h5>Fast & Easy</h5>
+                <p>Vote in under a minute from anywhere in the world.</p>
+            </div>
+            <div class="col-md-4 text-center feature-card" data-aos="zoom-in" data-aos-delay="400">
+                <div class="feature-icon">📊</div>
+                <h5>Live Results</h5>
+                <p>Instant tally updates with beautiful charts.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CM Section -->
+<section class="text-center" data-aos="fade-up">
+    <div class="container">
+        <div class="section-card">
+            <h2>Launched by Honorable CM</h2>
+            <img src="cm.jpg" class="img-fluid img-frame mt-3" width="500" alt="CM Image">
+        </div>
+    </div>
+</section>
+<img src="iindia.png" >
+
+<!-- Chart Section -->
+<footer>
+    <h2 style="text-align:center;">Vote Percentage Increase</h2>
+    <canvas id="voteChart" style="max-width:900px; margin:auto;"></canvas>
+</footer>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const ctx = document.getElementById('voteChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['2008', '2012', '2016', '2020', '2024'],
+            datasets: [{
+                label: 'Vote % Increase',
+                data: [25, 40,  60, 75, 90],
+                backgroundColor: [
+                    '#ff6384', '#36a2eb', '#ffce56',
+                    '#4bc0c0', '#9966ff', '#ff9f40'
+                ],
+                borderRadius: 8
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    callbacks: {
+                        label: ctx => `${ctx.raw}%`
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 100,
+                    ticks: {
+                        callback: val => val + '%'
+                    }
+                }
+            },
+            animation: {
+                duration: 2000
+            }
+        }
+    });
+</script>
+
+<!-- Footer -->
+<footer>
+    <p class="mb-0">© 2025 Online Voting System. All rights reserved.</p>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    // Typed.js animation
+    var typed = new Typed('#typed-text', {
+        strings: ["Secure & Easy Online Voting", "Blockchain-Powered Elections", "Vote Anytime, Anywhere"],
+        typeSpeed: 150,
+        backSpeed: 50,
+        loop: true
+    });
+
+    // Particles.js background
+    particlesJS.load('particles-js', 'https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js/demo/particles.json');
+
+    // AOS animations
+    AOS.init({
+        duration: 3000,
+        once: true
+    });
+</script>
+
+</body>
+</html>
