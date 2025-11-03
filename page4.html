@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>MLA Selection — Grid</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f4f7fb;
+    --card:#ffffff;
+    --accent:#0d6efd;
+    --muted:#6b7280;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family:'Poppins',system-ui,Segoe UI,Roboto,Arial;
+    background:var(--bg);
+    color:#222;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  header{
+    background:linear-gradient(90deg,#004aad,#007bff);
+    color:#fff;
+    padding:20px 12px;
+    text-align:center;
+    box-shadow:0 4px 18px rgba(0,0,0,0.08);
+  }
+  header h1{margin:0;font-weight:700;letter-spacing:0.2px}
+
+  .container{
+    max-width:1200px;
+    margin:26px auto;
+    padding:0 16px 40px;
+  }
+
+  .controls{
+    background:var(--card);
+    border-radius:12px;
+    padding:18px;
+    display:flex;
+    gap:12px;
+    align-items:center;
+    justify-content:flex-start;
+    box-shadow:0 6px 20px rgba(16,24,40,0.06);
+  }
+  .controls select, .controls button {
+    padding:10px 12px;
+    border-radius:8px;
+    border:1px solid #e6eef9;
+    font-size:15px;
+    background:#fff;
+  }
+  .controls button{
+    background:var(--accent);
+    color:#fff;
+    border:none;
+    cursor:pointer;
+    font-weight:600;
+  }
+  .controls .spacer{flex:1}
+
+  /* grid */
+  .grid {
+    margin-top:22px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr); /* 3 cards per row */
+    gap:18px;
+  }
+
+  @media (max-width:1000px){
+    .grid{grid-template-columns:repeat(2,1fr)}
+  }
+  @media (max-width:640px){
+    .grid{grid-template-columns:repeat(1,1fr)}
+  }
+
+  .card{
+    background:var(--card);
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 8px 24px rgba(15,23,42,0.06);
+    display:flex;
+    flex-direction:column;
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .card:hover{ transform:translateY(-6px); box-shadow:0 16px 40px rgba(15,23,42,0.12) }
+
+  .card .photo {
+    width:100%;
+    height:200px;
+    object-fit:cover;
+    display:block;
+  }
+
+  .card .body {
+    padding:14px 14px 18px;
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+    flex-direction:column;
+  }
+
+  .meta {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    width:100%;
+  }
+
+  .name {
+    font-weight:700;
+    font-size:16px;
+    color:#0b2546;
+    margin:0 0 6px 0;
+  }
+
+  .symbol {
+    width:52px;
+    height:52px;
+    border-radius:8px;
+    background:#fff;
+    border:1px solid #eef3fb;
+    object-fit:contain;
+    box-shadow:0 6px 16px rgba(3,10,34,0.04);
+  }
+
+  .experience {
+    color:var(--muted);
+    font-size:13px;
+    margin-top:4px;
+  }
+
+  .vote-row {
+    margin-top:10px;
+    display:flex;
+    gap:10px;
+    width:100%;
+    align-items:center;
+  }
+
+  .vote-btn {
+    flex:1;
+    background:linear-gradient(90deg,#1aa2ff,#0066ff);
+    color:#fff;
+    border:none;
+    padding:10px 12px;
+    border-radius:8px;
+    font-weight:700;
+    cursor:pointer;
+    transition:transform .12s ease, box-shadow .12s ease;
+  }
+  .vote-btn:hover{ transform:translateY(-2px); box-shadow:0 8px 20px rgba(3,102,255,0.18) }
+
+  .vote-small {
+    background:#fff;
+    color:#0b2546;
+    border:1px solid #e6eef9;
+    padding:8px 10px;
+    border-radius:8px;
+    font-size:13px;
+  }
+
+  /* footer note */
+  .note {
+    margin-top:18px;
+    text-align:center;
+    color:var(--muted);
+    font-size:14px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Choose Your MLA — Select & Vote</h1>
+</header>
+
+<main class="container">
+  <div class="controls" role="region" aria-label="filter controls">
+    <label for="state">State:</label>
+    <select id="state">
+      <option value="AP">Andhra Pradesh</option>
+      <option value="Other">Other</option>
+    </select>
+
+    <label for="town">District:</label>
+    <select id="town">
+      <!-- 20+ district options (example list) -->
+      <option value="">Select District</option>
+      <option>Anantapur</option>
+      <option>Tadipatri</option>
+      <option>Chittoor</option>
+      <option>YSR Kadapa</option>
+      <option>Kurnool</option>
+      <option>Prakasam</option>
+      <option>Guntur</option>
+      <option>Krishna</option>
+      <option>Palnadu</option>
+      <option>Vijayawada</option>
+      <option>Visakhapatnam</option>
+      <option>Vizianagaram</option>
+      <option>Srikakulam</option>
+      <option>East Godavari</option>
+      <option>West Godavari</option>
+      <option>Nellore</option>
+      <option>Tirupati</option>
+      <option>Rajahmundry</option>
+      <option>Eluru</option>
+      <option>Ongole</option>
+    </select>
+
+    <div class="spacer"></div>
+    <button id="btnSearch">Show Candidates</button>
+  </div>
+
+  <!-- grid -->
+  <div id="grid" class="grid" aria-live="polite"></div>
+
+  <div class="note">
+    Click <strong>Vote</strong> on a candidate to proceed to secure confirmation.
+  </div>
+</main>
+
+<script>
+/* generate 30 sample MLAs dynamically — replace these with real data / images */
+const sampleMLAs = Array.from({length:30}).map((_,i)=>{
+  const idx = i+1;
+  return {
+    id: `mla-${idx}`,
+    name: `MLA ${idx} Name`,
+    experience: `${(idx % 12) + 1} years MLA`, // sample years
+    face: `https://via.placeholder.com/640x400.png?text=MLA+${idx}`, // replace with real
+    symbol: `https://via.placeholder.com/80x80.png?text=S${(idx%6)+1}`
+  };
+});
+
+const grid = document.getElementById('grid');
+const btnSearch = document.getElementById('btnSearch');
+const stateEl = document.getElementById('state');
+const townEl = document.getElementById('town');
+
+function renderGrid(list){
+  grid.innerHTML = ''; // clear
+  list.forEach(c=>{
+    const card = document.createElement('article');
+    card.className = 'card';
+    card.innerHTML = `
+      <img class="photo" src="${c.face}" alt="${c.name}" style="display:block" loading="lazy">
+      <div class="body">
+        <div class="meta">
+          <div>
+            <p class="name">${c.name}</p>
+            <div class="experience">${c.experience}</div>
+          </div>
+          <img class="symbol" src="${c.symbol}" alt="party symbol">
+        </div>
+        <div class="vote-row">
+          <button class="vote-btn" data-id="${c.id}">Vote</button>
+          <button class="vote-small" onclick="showPreview('${c.face}')">Preview</button>
+        </div>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+
+  // attach click listeners for vote buttons
+  document.querySelectorAll('.vote-btn').forEach(btn=>{
+    btn.addEventListener('click', (e)=>{
+      const id = e.currentTarget.getAttribute('data-id');
+      const candidate = sampleMLAs.find(x=>x.id===id);
+      if(candidate){
+        // store selected candidate for page5 and redirect
+        localStorage.setItem('selectedCandidate', JSON.stringify(candidate));
+        // navigate to confirmation (page5.html)
+        window.location.href = 'page5.html';
+      }
+    });
+  });
+}
+
+/* preview helper (optional) */
+function showPreview(url){
+  const w = window.open('', '_blank', 'noopener');
+  w.document.write(`<img src="${url}" style="width:100%;height:auto;display:block">`);
+  w.document.title = 'Candidate Preview';
+}
+
+/* "search" — here we simply simulate a load and then render all sample MLAs.
+   You can filter by state/town by matching values; for demo we ignore filter.
+*/
+btnSearch.addEventListener('click', ()=>{
+  const state = stateEl.value;
+  const town = townEl.value;
+  if(!town){
+    alert('Please select a district.');
+    return;
+  }
+
+  // show animated counting (1..2..3...) before rendering
+  grid.innerHTML = ''; // clear earlier
+  const status = document.createElement('div');
+  status.style.gridColumn = '1 / -1';
+  status.style.padding = '30px';
+  status.style.background = '#fff';
+  status.style.borderRadius = '10px';
+  status.style.boxShadow = '0 6px 20px rgba(0,0,0,0.05)';
+  status.style.fontSize = '18px';
+  status.style.fontWeight = '600';
+  status.style.color = '#333';
+  grid.appendChild(status);
+
+  const total = sampleMLAs.length; // 30
+  let count = 0;
+  status.textContent = `Please wait — found ${count} candidates`;
+  const stepDelay = 100; // milliseconds between counts (change to control speed)
+  const timer = setInterval(()=>{
+    count++;
+    status.textContent = `Please wait — found ${count} candidate(s)`;
+    if(count === total){
+      clearInterval(timer);
+      // small pause then render cards
+      setTimeout(()=> renderGrid(sampleMLAs), 200);
+    }
+  }, stepDelay);
+});
+
+/* optional: auto-run once page loads (remove if you prefer manual submit) */
+// btnSearch.click();
+</script>
+</body>
+</html>

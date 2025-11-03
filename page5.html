@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vote Confirmation</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4f6f8;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 500px;
+        margin: 40px auto;
+        background: white;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h2 {
+        text-align: center;
+        color: #2c3e50;
+    }
+    .candidate {
+        text-align: center;
+        margin: 20px 0;
+    }
+    .candidate img {
+        border-radius: 8px;
+        margin-bottom: 8px;
+    }
+    .symbol {
+        width: 50px;
+        margin-left: 8px;
+        vertical-align: middle;
+    }
+    .guidelines {
+        background: #f0f4f8;
+        padding: 10px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        font-size: 14px;
+        color: #34495e;
+    }
+    input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        margin-top: 10px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+    }
+    .checkbox {
+        margin-top: 10px;
+    }
+    button {
+        width: 100%;
+        padding: 12px;
+        margin-top: 15px;
+        font-size: 16px;
+        border: none;
+        border-radius: 6px;
+        background: #2ecc71;
+        color: white;
+        cursor: pointer;
+    }
+    button:disabled {
+        background: #95a5a6;
+        cursor: not-allowed;
+    }
+    .message {
+        margin-top: 15px;
+        font-size: 16px;
+        text-align: center;
+        font-weight: bold;
+    }
+    .success { color: #27ae60; }
+    .error { color: #e74c3c; }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Vote Confirmation</h2>
+
+    <div class="candidate">
+        <img src="candidate_photo.jpg" width="150" alt="Candidate Photo"><br>
+        <strong>John Doe</strong>
+        <img src="party_symbol.jpg" class="symbol" alt="Party Symbol">
+    </div>
+
+    <div class="guidelines">
+        <p>✔ Your vote is confidential and cannot be changed after submission.</p>
+        <p>✔ Please enter the private key you received 2 days before election day.</p>
+    </div>
+
+    <label for="privateKey">Enter Private Key:</label>
+    <input type="password" id="privateKey" placeholder="****@**">
+
+    <div class="checkbox">
+        <input type="checkbox" id="confirmVote">
+        <label for="confirmVote">I confirm that I am voting for this candidate</label>
+    </div>
+
+     <button onclick="window.location.href='page6.html'">Submit</button>
+    <div id="message" class="message"></div>
+</div>
+
+<script>
+    const keyRequired = "1234@ab";
+    const privateKeyInput = document.getElementById("privateKey");
+    const confirmVote = document.getElementById("confirmVote");
+    const submitVote = document.getElementById("submitVote");
+    const message = document.getElementById("message");
+
+    // Enable button only when checkbox is ticked
+    confirmVote.addEventListener("change", () => {
+        submitVote.disabled = !confirmVote.checked;
+    });
+
+    submitVote.addEventListener("click", () => {
+        const enteredKey = privateKeyInput.value.trim();
+        if (enteredKey === keyRequired) {
+            message.innerHTML = "✅ Vote Accepted";
+            message.className = "message success";
+        } else {
+            message.innerHTML = "❌ Invalid Key";
+            message.className = "message error";
+        }
+    });
+</script>
+
+</body>
+</html>

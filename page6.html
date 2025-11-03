@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vote Accepted</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: linear-gradient(135deg, #ff5f6d, #ffc371);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+        }
+
+        p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+
+        .checkmark {
+            font-size: 5rem;
+            color: #4CAF50;
+            background: white;
+            border-radius: 50%;
+            padding: 20px;
+            display: inline-block;
+            animation: popIn 0.6s ease forwards;
+        }
+
+        .btn-home {
+            background: #4CAF50;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .btn-home:hover {
+            background: #45a049;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Floating shapes */
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.4;
+            animation: float 10s infinite ease-in-out;
+        }
+
+        .circle.small {
+            width: 50px;
+            height: 50px;
+            background: #ffffff;
+        }
+
+        .circle.medium {
+            width: 100px;
+            height: 100px;
+            background: #4CAF50;
+        }
+
+        .circle.large {
+            width: 150px;
+            height: 150px;
+            background: #ff9800;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-50px) rotate(180deg); }
+            100% { transform: translateY(0) rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating shapes for decoration -->
+    <div class="circle small" style="top:10%; left:15%;"></div>
+    <div class="circle medium" style="top:50%; left:5%;"></div>
+    <div class="circle large" style="top:70%; right:10%;"></div>
+    <div class="circle small" style="bottom:20%; right:25%;"></div>
+
+    <div class="container">
+        <div class="checkmark">✔</div>
+        <h1>Vote Accepted!</h1>
+        <h1> YOUR VOTE IS SAFE AND SECURE WITH US </h1>
+        <p>Thank you for casting your vote.</p>
+        <a href="index.html" class="btn-home">Back to Home</a>
+    </div>
+</body>
+</html>

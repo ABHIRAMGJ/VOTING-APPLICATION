@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Voter Verification</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: url(im2.jpg) no-repeat center center/cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    .container {
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        width: 350px;
+        text-align: center;
+    }
+    input {
+        width: 90%;
+        padding: 10px;
+        margin: 8px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+    button {
+        width: 95%;
+        padding: 10px;
+        margin-top: 15px;
+        background: #007BFF;
+        border: none;
+        color: white;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button:hover {
+        background: #0056b3;
+    }
+    .greeting {
+        font-weight: bold;
+        margin-bottom: 15px;
+        color: green;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Voter Verification</h2>
+
+    <div class="greeting" id="greeting"></div>
+
+    <label>Please confirm your Date of Birth</label>
+    <input type="date" id="dob">
+
+    <label>Last Four Digits of Mobile Number</label>
+    <input type="text" id="mobile" placeholder="Enter last 4 digits" maxlength="4" pattern="\d{4}">
+
+    <label>EPIC Number</label>
+    <input type="text" id="epic" placeholder="Enter EPIC Number">
+
+    <button onclick="window.location.href='page3.html'">Proceed</button>
+</div>
+
+<script>
+window.onload = function() {
+    let storedName = localStorage.getItem("username");
+    if (storedName) {
+        document.getElementById("greeting").textContent = `Hello ${storedName}, welcome!`;
+    } else {
+        document.getElementById("greeting").textContent = "Hello, welcome!";
+    }
+};
+
+function proceed() {
+    let dob = document.getElementById("dob").value;
+    let mobile = document.getElementById("mobile").value.trim();
+    let epic = document.getElementById("epic").value.trim();
+
+    if (!dob || !mobile || !epic) {
+        alert("Please fill in all details.");
+        return;
+    }
+    if (!/^\d{4}$/.test(mobile)) {
+        alert("Please enter exactly 4 digits for the mobile number.");
+        return;
+    }
+
+    // Store in localStorage for page3 use
+    localStorage.setItem("dob", dob);
+    localStorage.setItem("mobileLast4", mobile);
+    localStorage.setItem("epic", epic);
+
+    // Redirect to page3.html
+    window.location.href = "page3.html";
+}
+</script>
+
+</body>
+</html>
